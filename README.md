@@ -13,13 +13,13 @@ Features :
 • Real-time prediction output
 
 Technologies Used :
-• Python
-• Flask
-• Pandas
-• NumPy
-• Scikit-learn
-• HTML / CSS
-• Pickle (.pkl)
+ Python
+ Flask
+ Pandas
+ NumPy
+ Scikit-learn
+ HTML / CSS
+ Pickle (.pkl)
 
 
 Project Structure :
@@ -69,10 +69,10 @@ The application predicts whether rainfall will occur or not based on the input d
 
 
 requirements.txt :
-• flask
-• pandas
-• numpy
-• scikit-learn
+ flask
+ pandas
+ numpy
+ scikit-learn
 
 
 Future Scope : 
