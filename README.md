@@ -75,7 +75,7 @@ requirements.txt :
 • scikit-learn
 
 
-Future Scope
+Future Scope : 
 • Enhance prediction accuracy by training the model on larger and more diverse datasets.
 • Integrate real-time weather data APIs for live rainfall prediction.
 • Deploy the application on a cloud platform to make it accessible online.
@@ -83,9 +83,8 @@ Future Scope
 • Improve the user interface with advanced visualizations and interactive charts.
 • Explore the use of advanced machine learning or deep learning models for better performance.
 
-Team Contribution
+Team Contribution : 
 • This project was developed as a team effort with equal contribution from all members.
-• All team members participated equally in project planning and design.
 • Data collection, preprocessing, and model training were done collaboratively.
 • Development of the Flask web application was shared among the team.
 • Testing, debugging, and result validation were performed jointly.
