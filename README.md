@@ -90,6 +90,5 @@ Team Contribution :
 • Testing, debugging, and result validation were performed jointly.
 • Documentation and GitHub updates were handled collectively.
 
-
-
+Note: Model files (.pkl) are not previewable on GitHub due to size.
 
