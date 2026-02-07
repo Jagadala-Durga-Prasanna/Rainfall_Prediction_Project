@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Rainfall Prediction</title>
+    <title>Rainfall Analysis – India</title>
 
     <style>
         body {
@@ -12,8 +12,7 @@
             align-items: center;
             font-family: Arial, Helvetica, sans-serif;
 
-            /* Background image like your example */
-            background-image : url("/static/home.jpg");
+            background-image: url("/static/home.jpg");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -24,7 +23,7 @@
             padding: 30px 40px;
             border-radius: 16px;
             box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
-            width: 320px;
+            width: 360px;
             text-align: center;
         }
 
@@ -36,18 +35,21 @@
         label {
             font-weight: bold;
             color: #333;
+            display: block;
+            text-align: left;
+            margin-top: 10px;
         }
 
-        input {
+        input, select {
             width: 100%;
             padding: 10px;
-            margin-top: 8px;
+            margin-top: 6px;
             border-radius: 8px;
             border: 2px solid #ffa200;
-            font-size: 16px;
+            font-size: 15px;
         }
 
-        input:focus {
+        input:focus, select:focus {
             outline: none;
             border-color: #ff6200;
         }
@@ -58,7 +60,7 @@
             padding: 12px;
             font-size: 16px;
             font-weight: bold;
-            background: linear-gradient(135deg, #8c00ff, #ff7300);
+            background: linear-gradient(135deg, #00c6ff, #ff7300);
             color: white;
             border: none;
             border-radius: 8px;
@@ -76,29 +78,99 @@
 <body>
 
 <div class="container">
-    <h2>Rainfall Prediction</h2>
+    <h2>Rainfall Data Analysis</h2>
 
-    <label>Annual Rainfall:</label><br>
-    <input type="number" id="annual" placeholder="Enter rainfall"><br>
 
-    <button onclick="predict()">Predict</button>
+        <option value="">Select Subdivision</option>
+        
+        <label>Subdivision / State</label>
+<select id="subdivision">
+    <option value="">Select State / Subdivision</option>
+
+    <option>Andaman & Nicobar Islands</option>
+    <option>Andhra Pradesh</option>
+    <option>Arunachal Pradesh</option>
+    <option>Assam</option>
+    <option>Bihar</option>
+    <option>Chhattisgarh</option>
+    <option>Coastal Andhra Pradesh</option>
+    <option>Dadra & Nagar Haveli</option>
+    <option>Daman & Diu</option>
+    <option>Delhi</option>
+    <option>Goa</option>
+    <option>Gujarat</option>
+    <option>Haryana</option>
+    <option>Himachal Pradesh</option>
+    <option>Jammu & Kashmir</option>
+    <option>Jharkhand</option>
+    <option>Karnataka</option>
+    <option>Kerala</option>
+    <option>Lakshadweep</option>
+    <option>Madhya Maharashtra</option>
+    <option>Madhya Pradesh</option>
+    <option>Maharashtra</option>
+    <option>Manipur</option>
+    <option>Meghalaya</option>
+    <option>Mizoram</option>
+    <option>Nagaland</option>
+    <option>Odisha</option>
+    <option>Punjab</option>
+    <option>Rajasthan</option>
+    <option>Rayalaseema</option>
+    <option>Saurashtra & Kutch</option>
+    <option>South Interior Karnataka</option>
+    <option>Tamil Nadu</option>
+    <option>Telangana</option>
+    <option>Tripura</option>
+    <option>Uttar Pradesh</option>
+    <option>Uttarakhand</option>
+    <option>Vidarbha</option>
+    <option>West Bengal</option>
+</select>
+
+        
+
+    <label>Year</label>
+    <input type="number" id="year" placeholder="Enter year (e.g. 2015)">
+
+    <label>MAM Rainfall (Mar–May)</label>
+    <input type="number" id="mam" placeholder="Enter MAM rainfall">
+
+    <label>JJAS Rainfall (Jun–Sep)</label>
+    <input type="number" id="jjas" placeholder="Enter JJAS rainfall">
+
+    <label>OND Rainfall (Oct–Dec)</label>
+    <input type="number" id="ond" placeholder="Enter OND rainfall">
+
+    <label>Annual Rainfall (mm)</label>
+    <input type="number" id="annual" placeholder="Enter annual rainfall">
+
+    <button onclick="analyze()">Analyze Rainfall</button>
 </div>
 
 <script>
-function predict() {
-    let annual = document.getElementById("annual").value;
+    function analyze() {
+        let subdivision = document.getElementById("subdivision").value;
+        let year = document.getElementById("year").value;
+        let mam = document.getElementById("mam").value;
+        let jjas = document.getElementById("jjas").value;
+        let ond = document.getElementById("ond").value;
+        let annual = document.getElementById("annual").value;
 
-    if (annual === "") {
-        alert("Please enter rainfall value");
-        return;
-    }
+        if (subdivision === "" || year === "" || mam === "" || jjas === "" || ond === "" || annual === "") {
+            alert("Please fill all the fields");
+            return;
+        }
 
-    if (annual > 15) {
-        window.location.href = "/chance";
-    } else {
-        window.location.href = "/nochance";
+        // Simple EDA-based rule (demo logic)
+        let seasonalTotal = Number(mam) + Number(jjas) + Number(ond);
+
+        if (seasonalTotal >= 2 * annual) {
+            window.location.href = "/chance";
+        } else {
+            window.location.href = "/nochance";
+        }
     }
-}
 </script>
 
 </body>
