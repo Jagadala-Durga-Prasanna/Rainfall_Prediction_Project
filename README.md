@@ -22,23 +22,30 @@ Technologies Used :
  Pickle (.pkl)
 
 
-Project Structure :
+📂 Project Structure : 
 
 Rainfall_Prediction_Project/
+│
+├── app.py                  # Flask application
+├── train_model.py          # Model training script
+├── rainfall_prediction.py  # Prediction logic
+├── rainfall_india.csv      # Dataset
+│
+├── model.pkl               # Trained ML model
+├── encoder.pkl             # Encoder file
+├── imputer.pkl             # Imputer file
+├── scale.pkl               # Scaler file
+├── rainfall.pkl            # Supporting model file
+│
+├── templates/              # HTML templates
+│   ├── index.html
+│   ├── chance.html
+│   └── nochance.html
+│
+├── static/                 # CSS / static files
+│
+└── README.md               # Project documentation
 
-1.app.py                    # Flask application
-2.train_model.py            # Model training script
-3.rainfall_prediction.py    # Prediction logic
-4.rainfall.csv              # Dataset
-5.model.pkl                 # Trained ML model
-6.encoder.pkl               # Encoder file
-7.imputer.pkl               # Imputer file
-8.templates/
- a.index.html
- b.chance.html
- c.nochance.html
-9.static/                   # CSS / static files
-10.README.md                # Project documentation
 
  
 Machine Learning Model
@@ -51,7 +58,8 @@ Machine Learning Model
 How to Run the Project :
 
 1️⃣ Clone the Repository
-git clone https://github.com/jagadala-durga-prasanna/Rainfall_Prediction_Project.git
+git clone 
+https://github.com/jagadala-durga-prasanna/Rainfall_Prediction_Project.git
 cd Rainfall_Prediction_Project
 
 2️⃣ Install Required Libraries
@@ -66,14 +74,6 @@ http://127.0.0.1:5000
 
 Output :
 The application predicts whether rainfall will occur or not based on the input data and displays the result through the web interface.
-
-
-requirements.txt :
- flask
- pandas
- numpy
- scikit-learn
-
 
 Future Scope : 
 • Enhance prediction accuracy by training the model on larger and more diverse datasets.
