@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Rainfall Analysis – India</title>
+    <title>Rainfall Prediction – Indian Agriculture</title>
 
     <style>
         body {
@@ -78,23 +78,13 @@
 <body>
 
 <div class="container">
-    <h2>Rainfall Data Analysis</h2>
-
-
-        <option value="">Select Country</option>
+    <h2>Rainfall Prediction in Indian Agriculture</h2>
         
-        <label>Country</label>
-<select id="subdivision">
-    <option value="">Select Country</option>
-
-    <option>India</option>
-    
-</select>
 
         
 
-    <label>Year</label>
-    <input type="number" id="year" placeholder="Enter year (e.g. 2015)">
+    <label>JF Rainfall (Jan-Feb)</label>
+    <input type="number" id="jf" placeholder="Enter JF rainfall">
 
     <label>MAM Rainfall (Mar–May)</label>
     <input type="number" id="mam" placeholder="Enter MAM rainfall">
@@ -105,30 +95,27 @@
     <label>OND Rainfall (Oct–Dec)</label>
     <input type="number" id="ond" placeholder="Enter OND rainfall">
 
-    <label>Annual Rainfall (mm)</label>
-    <input type="number" id="annual" placeholder="Enter annual rainfall">
 
-    <button onclick="analyze()">Analyze Rainfall</button>
+    <button onclick="analyze()">Predict Rainfall</button>
 </div>
 
 <script>
     function analyze() {
-        let subdivision = document.getElementById("subdivision").value;
-        let year = document.getElementById("year").value;
+        let jf = document.getElementById("jf").value;
         let mam = document.getElementById("mam").value;
         let jjas = document.getElementById("jjas").value;
         let ond = document.getElementById("ond").value;
-        let annual = document.getElementById("annual").value;
 
-        if (subdivision === "" || year === "" || mam === "" || jjas === "" || ond === "" || annual === "") {
+
+        if (jf === "" || mam === "" || jjas === "" || ond === "") {
             alert("Please fill all the fields");
             return;
         }
 
         // Simple EDA-based rule (demo logic)
-        let seasonalTotal = Number(mam) + Number(jjas) + Number(ond);
+        let seasonalTotal = Number(jf) + Number(mam) + Number(jjas) + Number(ond);
 
-        if (seasonalTotal >= 2 * annual) {
+        if (seasonalTotal >= 25) {
             window.location.href = "/chance";
         } else {
             window.location.href = "/nochance";
