@@ -22,30 +22,6 @@ Technologies Used :
  Pickle (.pkl)
 
 
-📂 Project Structure : 
-
-Rainfall_Prediction_Project/
-│
-├── app.py                  # Flask application
-├── train_model.py          # Model training script
-├── rainfall_prediction.py  # Prediction logic
-├── rainfall_india.csv      # Dataset
-│
-├── model.pkl               # Trained ML model
-├── encoder.pkl             # Encoder file
-├── imputer.pkl             # Imputer file
-├── scale.pkl               # Scaler file
-├── rainfall.pkl            # Supporting model file
-│
-├── templates/              # HTML templates
-│   ├── index.html
-│   ├── chance.html
-│   └── nochance.html
-│
-├── static/                 # CSS / static files
-│
-└── README.md               # Project documentation
-
 
  
 Machine Learning Model
@@ -92,3 +68,6 @@ Team Contribution :
 
 Note: Model files (.pkl) are not previewable on GitHub due to size.
 
+
+
+Demo Link : 
