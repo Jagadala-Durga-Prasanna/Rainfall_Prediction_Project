@@ -70,4 +70,3 @@ Note: Model files (.pkl) are not previewable on GitHub due to size.
 
 
 
-Demo Link : https://drive.google.com/file/d/1KoVD-cvXOqri9KuVGREJ2cyuIB3gjiIJ/view?usp=drive_link
