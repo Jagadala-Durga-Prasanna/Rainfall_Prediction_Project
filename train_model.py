@@ -1,26 +1,27 @@
 import pandas as pd
-from sklearn.linear_model import LinearRegression
+from sklearn.linear_model import LogisticRegression
+from sklearn.preprocessing import StandardScaler
 import pickle
 
-# Load dataset
-df = pd.read_csv("rainfall_india.csv")   # <-- adjust name if needed
-
-# Remove rows with missing values
+df = pd.read_csv("rainfall_india.csv")
 df = df.dropna()
 
-# Features (months)
-X = df[['JAN','FEB','MAR','APR','MAY','JUN',
-        'JUL','AUG','SEP','OCT','NOV','DEC']]
+X = df[['JF', 'MAM', 'JJAS', 'OND']]
 
-# Target
-y = df['ANNUAL']
+# Create balanced target
+df['Rain_Chance'] = df['ANNUAL'].apply(lambda x: 1 if x > 800 else 0)
 
-# Train model
-model = LinearRegression()
-model.fit(X, y)
+y = df['Rain_Chance']
 
-# Save model
-with open("model.pkl", "wb") as f:
-    pickle.dump(model, f)
+# Scale features
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
 
-print("MODEL TRAINED SUCCESSFULLY")
+model = LogisticRegression()
+model.fit(X_scaled, y)
+
+# Save both model and scaler
+pickle.dump(model, open("model.pkl", "wb"))
+pickle.dump(scaler, open("scaler.pkl", "wb"))
+
+print("Model trained successfully")
