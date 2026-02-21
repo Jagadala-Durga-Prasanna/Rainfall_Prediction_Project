@@ -80,48 +80,17 @@
 <div class="container">
     <h2>Rainfall Prediction in Indian Agriculture</h2>
         
+    <form action="/predict" method="post">
 
-        
+    <input type="text" name="JF" placeholder="JF Rainfall">
+    <input type="text" name="MAM" placeholder="MAM Rainfall">
+    <input type="text" name="JJAS" placeholder="JJAS Rainfall">
+    <input type="text" name="OND" placeholder="OND Rainfall">
 
-    <label>JF Rainfall (Jan-Feb)</label>
-    <input type="number" id="jf" placeholder="Enter JF rainfall">
+    <button type="submit">Predict Rainfall</button>
 
-    <label>MAM Rainfall (Mar–May)</label>
-    <input type="number" id="mam" placeholder="Enter MAM rainfall">
-
-    <label>JJAS Rainfall (Jun–Sep)</label>
-    <input type="number" id="jjas" placeholder="Enter JJAS rainfall">
-
-    <label>OND Rainfall (Oct–Dec)</label>
-    <input type="number" id="ond" placeholder="Enter OND rainfall">
-
-
-    <button onclick="analyze()">Predict Rainfall</button>
-</div>
-
-<script>
-    function analyze() {
-        let jf = document.getElementById("jf").value;
-        let mam = document.getElementById("mam").value;
-        let jjas = document.getElementById("jjas").value;
-        let ond = document.getElementById("ond").value;
-
-
-        if (jf === "" || mam === "" || jjas === "" || ond === "") {
-            alert("Please fill all the fields");
-            return;
-        }
-
-        // Simple EDA-based rule (demo logic)
-        let seasonalTotal = Number(jf) + Number(mam) + Number(jjas) + Number(ond);
-
-        if (seasonalTotal >= 25) {
-            window.location.href = "/chance";
-        } else {
-            window.location.href = "/nochance";
-        }
-    }
-</script>
+</form>
+    
 
 </body>
 </html>
